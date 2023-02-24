@@ -22,9 +22,9 @@ public class UserController {
     @PostMapping("/add")
     public String processAddUserForm(Model model, @ModelAttribute User user, String verify) {
         // add form submission handling code here
-        User newUser = new User();
-        model.addAttribute("user", newUser);
+
         if(user.getPassword().equals(verify)) {
+            model.addAttribute("user", newUser);
             return "/user/index";
         } else {
             return "/user/add";
